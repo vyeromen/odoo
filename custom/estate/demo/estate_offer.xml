@@ -1,0 +1,33 @@
+<odoo>
+    <record id="offer_villa_1" model="estate.property.offer">
+        <field name="property_id" ref="villa"/>
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="price">10000</field>
+        <field name="validity">14</field>
+        <field name="date_deadline" eval="str(datetime.now().year)+'-04-17'"/>
+    </record>
+
+    <record id="offer_villa_2" model="estate.property.offer">
+        <field name="property_id" ref="villa"/>
+        <field name="partner_id" ref="base.res_partner_12"/>
+        <field name="price">1500000</field>
+        <field name="validity">14</field>
+        <field name="date_deadline" eval="str(datetime.now().year)+'-04-17'"/>
+    </record>
+
+    <record id="offer_villa_3" model="estate.property.offer">
+        <field name="property_id" ref="villa"/>
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="price">1500001</field>
+        <field name="validity">14</field>
+        <field name="date_deadline" eval="str(datetime.now().year)+'-04-17'"/>
+    </record>
+
+    <function model="estate.property.offer" name="accept_offer">
+        <value eval="[ref('offer_villa_2')]"/>
+    </function>
+
+    <function model="estate.property.offer" name="reject_offer">
+        <value eval="[ref('offer_villa_1'), ref('offer_villa_3')]"/>
+    </function>
+</odoo>
